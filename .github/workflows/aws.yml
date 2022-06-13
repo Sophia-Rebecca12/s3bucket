@@ -85,6 +85,8 @@ jobs:
       with:
         aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        source: 's3://contents.virtusasystems.com'
-        dest: './C:\Users\Parmanand_Satyam\OneDrive\Desktop\new'
-        flags: --recursive
+        run: aws s3 cp s3://contents.virtusasystems.com /C:\Users\sophia rebecca\OneDrive\Desktop\virtusa_1\s3test --recursive
+
+#         source: 's3://contents.virtusasystems.com'
+#         dest: './C:\Users\Parmanand_Satyam\OneDrive\Desktop\new'
+#         flags: --recursive
