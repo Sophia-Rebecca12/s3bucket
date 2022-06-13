@@ -69,31 +69,6 @@
         
 #         name: Download a file from S3
 
-# on:
-#   push:
-#     branches:
-#     - master
-
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
-#     steps:
-#     - uses: actions/checkout@master
-    
-#     - name: Copy s3 data
-#       uses: prewk/s3-cp-action@v2
-#       with:
-#         aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#         aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-# #         run: aws s3 cp s3://contents.virtusasystems.com  --recursive
-
-#         source: 's3://contents.virtusasystems.com'
-#         dest: './C:\Users\sophia_rebecca\OneDrive\Desktop\virtusa_1\s3test'
-#         flags: --recursive
-
-
-name: GitHub Pages
-
 on:
   push:
     branches:
@@ -103,41 +78,17 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1
-
-    - name: Checkout
-      uses: actions/checkout@v2
-      
-    - name: Deploy
-      run: |
-       working_dir: C:\Users\sophia_rebecca\OneDrive\Desktop\virtusa_1\s3test
-       aws s3 cp s3://contents.virtusasystems.com . --recursive
-
-
-
-#     - name: Setup Node.js
-#       uses: actions/setup-node@v2
-#       with:
-#         node-version: 14
-
-#     - name: Install npm-install-changed-global
-#       run: npm install -g npm-install-changed
-     
-#     - name: Install npm-install-changed
-#       run: npm i npm-install-changed
-     
-#     - name: Install dependencies
-#       run: npm-install-changed
-
-#     - name: Build
-#       run: npm run-script build
-
-   
-#       if: success()
-#       run: aws s3 sync build s3://comments.virtusasystems.com/
+    - uses: actions/checkout@master
     
+    - name: Copy s3 data
+      uses: prewk/s3-cp-action@v2
+      with:
+        aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: aws s3 cp 's3://contents.virtusasystems.com' './C:\Users\sophia_rebecca\OneDrive\Desktop\virtusa_1\s3test' --recursive
+
+#         source: 's3://contents.virtusasystems.com'
+#         dest: './C:\Users\sophia_rebecca\OneDrive\Desktop\virtusa_1\s3test'
+#         flags: --recursive
+
+
