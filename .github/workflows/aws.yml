@@ -88,7 +88,7 @@ jobs:
 #         run: aws s3 cp s3://contents.virtusasystems.com ./C:\Users\sophia_rebecca\OneDrive\Desktop\virtusa_1\s3test --recursive
 
         source: 's3://contents.virtusasystems.com'
-        dest: './C:\Users\sophia_rebecca\OneDrive\Desktop\virtusa_1\s3test'
+        dest: './C:\Users\sophia_rebecca\OneDrive\Desktop\virtusa_1\'
         flags: --recursive
 
 
