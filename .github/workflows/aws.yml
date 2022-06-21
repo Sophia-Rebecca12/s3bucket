@@ -85,10 +85,13 @@ jobs:
       with:
         aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#         run: aws s3 cp s3://contents.virtusasystems.com ./C:\Users\sophia_rebecca\OneDrive\Desktop\virtusa_1\s3test --recursive
+        
+    - name: Copy s3 data 
+      run:
+       aws s3 cp s3://contents.virtusasystems.com ./C:\Users\sophia_rebecca\OneDrive\Desktop\virtusa_1\s3test --recursive
 
-        source: 's3://contents.virtusasystems.com'
-        dest: './C:\Users\sophia_rebecca\OneDrive\Desktop\virtusa_1\'
-        flags: --recursive
-
+#         source: 's3://contents.virtusasystems.com'
+#         dest: './C:\Users\sophia_rebecca\OneDrive\Desktop\virtusa_1\'
+#         flags: --recursive
+#          aws s3 cp s3://WholeBucket LocalFolder --recursive
 
