@@ -19,8 +19,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Checkout
-      run:  aws s3 cp s3://contents.virtusasystems.com ./C:\Users\sophia_rebecca\OneDrive\Desktop\virtusa_1\s3test --recursive
+    - name: Copy
+      run:  aws s3 cp s3://contents.virtusasystems.com C:\Users\sophia rebecca\OneDrive\Desktop\testing --recursive
 #    #   run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/container/latest
 #    #   run: aws s3 cp dist s3://vcp-angular.virtusasystems.com/ --recursive
 
